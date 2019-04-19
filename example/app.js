@@ -1,19 +1,19 @@
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var cleanroutes = require('../index');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const cleanroutes = require('../index');
 // option 1
 // var routes = [];
 // routes.push(require('./routes/healthcheck'));
 // routes.push(require('./routes/users'));
 
 //option2
-const routes = require('./routes')
+const routes = require('./routes');
 
 //option 3
-var healthRouter = require('./routes/healthcheck');
-var userRouter = require('./routes/users');
+const healthRouter = require('./routes/healthcheck');
+const userRouter = require('./routes/users');
 
 
 

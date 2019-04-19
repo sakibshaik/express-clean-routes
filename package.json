@@ -1,6 +1,6 @@
 {
   "name": "express-clean-routes",
-  "version": "0.0.0",
+  "version": "0.0.5",
   "description": "express-clean-route is a library that helps to write clean routes for express applications.",
   "main": "index.js",
   "scripts": {
@@ -15,6 +15,10 @@
     "express routing",
     "routing"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sakibshaik/express-clean-routes.git"
+  },
   "author": "sakib",
   "license": "ISC",
   "dependencies": {
