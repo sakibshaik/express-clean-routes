@@ -10,7 +10,7 @@ launch.json
 *.DS_Store
 
 # IDE
-.idea/*
+.idea/
 .idea/workspace.xml
 
 
