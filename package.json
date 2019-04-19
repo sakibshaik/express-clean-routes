@@ -1,6 +1,6 @@
 {
   "name": "express-clean-routes",
-  "version": "0.0.5",
+  "version": "0.1.0",
   "description": "express-clean-route is a library that helps to write clean routes for express applications.",
   "main": "index.js",
   "scripts": {
