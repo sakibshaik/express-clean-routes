@@ -2,6 +2,8 @@
 node_modules/
 example/
 package-lock.json
+.nyc_output/
+coverage/
 .codeclimate.yml
 .eslintrc
 .gitattributes

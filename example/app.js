@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-const cleanroutes = require('../index');
+const cleanroutes = require('express-clean-routes');
 // option 1
 // var routes = [];
 // routes.push(require('./routes/healthcheck'));
