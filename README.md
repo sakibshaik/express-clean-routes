@@ -20,7 +20,7 @@ $ npm i -s express-clean-routes
 
 ## Clean route definition
 
-```sh
+```js
 const path = [
     {
         'path' : '/users/info',
@@ -32,7 +32,7 @@ const path = [
 ```
 
 'path' can take Dynamic Routes like:
-```sh 
+```js
  const path = [
      {
          'path' : '/users/:id',
@@ -45,7 +45,7 @@ const path = [
 ```
 
 'middlewares' can take multiple middleware functions:
-```sh 
+```js
  const path = [
      {
          'path' : '/users/:id',
@@ -91,7 +91,7 @@ package.json
 
 The users.js file in routes directory:
 
-```sh
+```js
 
 const middleware = require('../middlewares')
 const controller = require('../controllers/users')
@@ -119,7 +119,7 @@ module.exports = paths;
 
 The healthcheck.js file in routes directory:
 
-```sh
+```js
 
 const middleware = require('../middlewares')
 const controller = require('../controllers')
@@ -146,7 +146,7 @@ module.exports = paths;
 
 The index.js file in routes directory:
 
-``` 
+```js
 
 var paths = [];
 
@@ -162,7 +162,7 @@ module.exports = paths;
 
 The index.js file in middlewares directory:
 
-```sh
+```js
 
 const Middleware = {};
 
@@ -192,7 +192,7 @@ module.exports = Middleware;
 
 Your app.js will look similar to this:
 
-```sh
+```js
 const express = require('express');
 const http = require('http');
 const cleanroutes = require('express-clean-routes');
@@ -217,7 +217,7 @@ server.listen(port, () => {
 
 Your app.js will look similar to this:
 
-```sh
+```js
 const express = require('express');
 const http = require('http');
 const cleanroutes = require('express-clean-routes');
@@ -245,7 +245,7 @@ server.listen(port, () => {
 
 Your app.js will look similar to this:
 
-```sh
+```js
 const express = require('express');
 const http = require('http');
 const cleanroutes = require('express-clean-routes');
