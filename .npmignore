@@ -1,0 +1,11 @@
+node_modules/
+example/
+package-lock.json
+.codeclimate.yml
+.eslintrc
+.gitattributes
+.gitignore
+.npmrc
+.npmignore
+.snyk
+.travis.yml
