@@ -1,9 +1,8 @@
 const utils = require('./utils');
 const express = require('express');
 
-const router = express.Router();
-
 function registerRoutes(routes) {
+    const router = express.Router();
     routes.forEach(paths => {
         paths.forEach(obj => {
             const path = utils.validatePath(obj.path);

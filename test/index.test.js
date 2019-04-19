@@ -8,18 +8,22 @@ const cleanrouter = require("../index");
 const utils = require("../utils")
 
 describe("## express clean routes creator", (done) => {
-    let  postStub;
+    let validatePathStub, validateMiddlewaresStub, validateRouteHandlerStub, validateRouteMethodStub, expressSpy
     beforeEach(() => {
-        spy1 = sinon.spy(cleanrouter);
-        postStub = sinon.stub(express.Router(), 'route').callsFake(()=>{
-            return false
-        });
+        validatePathStub = sinon.spy(utils, "validatePath");
+        validateMiddlewaresStub = sinon.spy(utils, "validateMiddlewares");
+        validateRouteHandlerStub = sinon.spy(utils, "validateRouteHandler");
+        validateRouteMethodStub = sinon.spy(utils, "validateRouteMethod");
+        expressSpy = sinon.spy(express, "Router")
 
     });
     afterEach(() => {
-
+        utils.validatePath.restore();
+        utils.validateMiddlewares.restore();
+        utils.validateRouteHandler.restore();
+        utils.validateRouteMethod.restore();
+        express.Router.restore()
     });
-
     it("registerRoutes to throw error for invalid method", (done)=>{
         const path = [
             {
@@ -33,6 +37,11 @@ describe("## express clean routes creator", (done) => {
         try {
             routerSpy([path]);
         } catch(e){
+            sinon.assert.calledOnce(validatePathStub);
+            sinon.assert.calledOnce(validateMiddlewaresStub);
+            sinon.assert.calledTwice(validateRouteHandlerStub);
+            sinon.assert.calledOnce(validateRouteMethodStub);
+            sinon.assert.calledOnce(expressSpy);
             expect(e.message).to.equal('invalid route for /users/info Method:invalidmethod');
             done();
         }
@@ -52,11 +61,14 @@ describe("## express clean routes creator", (done) => {
         try {
             routerSpy([path]);
         } catch(e){
+            sinon.assert.calledOnce(validatePathStub);
+            sinon.assert.calledOnce(validateMiddlewaresStub);
+            sinon.assert.calledTwice(validateRouteHandlerStub);
+            sinon.assert.calledOnce(validateRouteMethodStub);
+            sinon.assert.calledOnce(expressSpy);
             expect(e.message).to.equal('invalid route for /users/info Method:get');
             done();
         }
-
-
     });
     it("registerRoutes should validate the inputs in path", (done)=>{
         const path = [
@@ -66,22 +78,16 @@ describe("## express clean routes creator", (done) => {
                 'middlewares' : [() =>{}],
                 'handlers' : () =>{}
             }
-        ]
-        const validatePathStub = sinon.spy(utils, "validatePath")
-        const validateMiddlewaresStub = sinon.spy(utils, "validateMiddlewares")
-        const validateRouteHandlerStub = sinon.spy(utils, "validateRouteHandler")
-        const validateRouteMethodStub = sinon.spy(utils, "validateRouteMethod")
-        cleanrouter([path]);
+        ];
+
+        const routes = cleanrouter([path]);
         sinon.assert.calledOnce(validatePathStub);
         sinon.assert.calledOnce(validateMiddlewaresStub);
         sinon.assert.calledTwice(validateRouteHandlerStub);
         sinon.assert.calledOnce(validateRouteMethodStub);
-        utils.validatePath.restore();
-        utils.validateMiddlewares.restore();
-        utils.validateRouteHandler.restore();
-        utils.validateRouteMethod.restore();
+        sinon.assert.calledOnce(expressSpy);
+        expect(typeof routes).to.equal('function');
         done();
-
     });
 
 });
