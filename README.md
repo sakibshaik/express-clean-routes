@@ -1,7 +1,7 @@
 # express-clean-routes
 
 [![Build Status](https://travis-ci.com/sakibshaik/express-clean-routes.svg?token=xgYW8ST28NstUyTtHiqH&branch=master)](https://travis-ci.com/sakibshaik/express-clean-routes)
-[![Coverage Status](https://coveralls.io/repos/github/sakibshaik/express-routes-mapper/badge.svg?branch=master)](https://coveralls.io/github/sakibshaik/express-routes-mapper?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/sakibshaik/express-routes-mapper/badge.svg?branch=master)](https://coveralls.io/github/sakibshaik/express-routes-mapper?branch=master) [![Greenkeeper badge](https://badges.greenkeeper.io/sakibshaik/express-clean-routes.svg)](https://greenkeeper.io/)
 
 ##### `Easy to use library that helps to write clean routes for express applications.`
 
