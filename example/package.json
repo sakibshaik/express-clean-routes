@@ -8,7 +8,7 @@
   "dependencies": {
     "cookie-parser": "~1.4.3",
     "debug": "~4.1.1",
-    "express": "~4.16.0",
+    "express": "~4.17.0",
     "express-clean-routes": "0.1.0",
     "morgan": "~1.9.0"
   }
